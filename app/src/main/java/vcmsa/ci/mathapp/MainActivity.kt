@@ -22,28 +22,20 @@ class MainActivity() : AppCompatActivity() {
         //allows  text to be found and used in files
         findViewById<TextView>(R.id.txtWelcome)
 
-        //Get references to UI elements
-        val num1 = findViewById<EditText>(R.id.InputNumOne)
-        val num2 = findViewById<EditText>(R.id.InputNumTwo)
-        val button = findViewById<Button>(R.id.btnCalculate)
-        val textView = findViewById<TextView>(R.id.Result)
 
-        val firstNumber: String = "Num1"
-        val secondNumber: String = "Num2"
-        val mySum: String = "Result"
+        val num1: EditText = findViewById(R.id.InputNumOne)
+        val num2: EditText = findViewById(R.id.InputNumTwo)
+        val button: Button = findViewById(R.id.btnCalculate)
+        val result: EditText = findViewById(R.id.Result)
 
         button.setOnClickListener {
-            textView.text = """
-             String: $firstNumber
-             String: $secondNumber
-             String: $mySum
-         """.trimIndent()
+            val num1_text = num1.text.toString()
+            val num2_text = num2.text.toString()
+            val sum = num1_text.toInt() + num2_text.toInt()
+            result.setText(sum.toString())
         }
-        if (firstNumber != null && secondNumber != null) {
-            val sum = firstNumber + secondNumber
-        } else {
-            val mySum = "String: $mySum"
-        }
+
+
     }   }
              
         
